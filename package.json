@@ -1,6 +1,6 @@
 {
   "name": "gof",
-  "version": "private",
+  "private": true,
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
