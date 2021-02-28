@@ -11,4 +11,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./cellState":"gfvz"}],"B6dB":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("./cellState"),t=require("./gameLoop"),n=require("./gameOfLife"),o=require("./renderer");function r(t){for(var n=0;n<t.height;n++)for(var o=0;o<t.width;o++)t.setState(o,n,Math.floor(10*Math.random())?e.CellState.Dead:e.CellState.Alive)}window.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("canvas");e.height=500,e.width=500;var a=new o.Renderer(e),i=new n.GameOfLife(250,250);r(i.getBoard());var d=new t.GameLoop(i,a);document.getElementById("toggle-button").onclick=function(){d.toggle()},document.getElementById("step-button").onclick=function(){d.stop(),d.tick()},document.getElementById("restart-button").onclick=function(){r(i.getBoard())}});
 },{"./cellState":"gfvz","./gameLoop":"cNCv","./gameOfLife":"QqgM","./renderer":"P5CY"}]},{},["B6dB"], null)
-//# sourceMappingURL=/src.78ce0d51.js.map
+//# sourceMappingURL=src.78ce0d51.js.map
