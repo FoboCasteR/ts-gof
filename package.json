@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
+    "build:gh-pages": "parcel build index.html --public-url ./",
     "eslint:check": "eslint . --ext .js,.jsx,.ts,.tsx",
     "eslint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "prettier:check": "prettier --parser typescript --single-quote --list-different \"src/**/*.{ts,tsx}\"",
