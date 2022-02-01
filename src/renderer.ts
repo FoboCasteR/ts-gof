@@ -21,23 +21,22 @@ export class Renderer {
       gameBoard.height
     );
 
+    const buffer = new ArrayBuffer(imageData.data.length);
+    const pixels = new Uint32Array(buffer);
+
     for (let y = 0; y < gameBoard.height; y++) {
       for (let x = 0; x < gameBoard.width; x++) {
-        let index = (y * gameBoard.width + x) * 4;
+        const index = y * gameBoard.width + x;
 
         if (gameBoard.getState(x, y) === CellState.Alive) {
-          imageData.data[index] = 255;
-          imageData.data[++index] = 255;
-          imageData.data[++index] = 255;
+          pixels[index] = 0xffffffff;
         } else {
-          imageData.data[index] = 0;
-          imageData.data[++index] = 0;
-          imageData.data[++index] = 0;
+          pixels[index] = 0xff000000;
         }
-
-        imageData.data[++index] = 255;
       }
     }
+
+    imageData.data.set(new Uint8ClampedArray(buffer));
 
     this.ctx.putImageData(imageData, 0, 0);
     this.ctx.drawImage(this.ctx.canvas, 0, 0);
